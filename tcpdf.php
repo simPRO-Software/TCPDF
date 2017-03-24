@@ -6113,30 +6113,32 @@ class TCPDF {
 		$chars = TCPDF_FONTS::utf8Bidi(TCPDF_FONTS::UTF8StringToArray($txt, $this->isunicode, $this->CurrentFont), $txt, $this->tmprtl, $this->isunicode, $this->CurrentFont);
 		$charsWidth = $this->GetArrStringWidth($chars, '', '', 0, true);
 		$length = count($chars);
-		$lastSeparator = -1;
-		for ($i = 0; $i < $length; ++$i) {
-			$charWidth = $charsWidth[$i];
-			if (preg_match($this->re_spaces, TCPDF_FONTS::unichr($chars[$i], $this->isunicode))) {
-				$lastSeparator = $i;
-			}
-			if ((($sum + $charWidth) > $wmax) OR ($chars[$i] == 10)) {
-				++$lines;
-				if ($chars[$i] == 10) {
-					$lastSeparator = -1;
-					$sum = 0;
-				} elseif ($lastSeparator != -1) {
-					$i = $lastSeparator;
-					$lastSeparator = -1;
-					$sum = 0;
-				} else {
-					$sum = $charWidth;
+		if ($length > 0) {
+			$lastSeparator = -1;
+			for ($i = 0; $i < $length; ++$i) {
+				$charWidth = $charsWidth[$i];
+				if (preg_match($this->re_spaces, TCPDF_FONTS::unichr($chars[$i], $this->isunicode))) {
+					$lastSeparator = $i;
 				}
-			} else {
-				$sum += $charWidth;
+				if ((($sum + $charWidth) > $wmax) OR ($chars[$i] == 10)) {
+					++$lines;
+					if ($chars[$i] == 10) {
+						$lastSeparator = -1;
+						$sum = 0;
+					} elseif ($lastSeparator != -1) {
+						$i = $lastSeparator;
+						$lastSeparator = -1;
+						$sum = 0;
+					} else {
+						$sum = $charWidth;
+					}
+				} else {
+					$sum += $charWidth;
+				}
 			}
-		}
-		if ($chars[($length - 1)] == 10) {
-			--$lines;
+			if ($chars[($length - 1)] == 10) {
+				--$lines;
+			}
 		}
 		$this->cell_padding = $prev_cell_padding;
 		$this->lasth = $prev_lasth;
