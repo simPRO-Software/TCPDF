@@ -2801,7 +2801,10 @@ class TCPDF_STATIC {
 			}
 		}
 		foreach ($alt as $f) {
-			$ret = @file_get_contents($f);
+			$ret = false;
+            if(@file_exists($f)){
+                $ret = @file_get_contents($f);
+            }
 			if (($ret === FALSE)
 				AND !ini_get('allow_url_fopen')
 				AND function_exists('curl_init')
