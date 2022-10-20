@@ -6382,7 +6382,7 @@ class TCPDF {
 		$pc = 0; // previous character
 		// for each character
 		while ($i < $nb) {
-			if (($maxh > 0) AND (number_format($this->y, 5) > number_format($maxy, 5)) ) {
+			if (($maxh > 0) AND (round($this->y, 5) > round($maxy, 5)) ) {
 				break;
 			}
 			//Get the current character
