@@ -6800,7 +6800,11 @@ class TCPDF {
 				$imsize = @getimagesize($file);
 			}
 			if ($imsize === FALSE) {
-				$imgdata = TCPDF_STATIC::fileGetContents($file);
+			    try {
+		                $imgdata = TCPDF_STATIC::fileGetContents($file);
+			    } catch (Exception $e) {
+				return;
+			    }
 			}
 		}
 		if (isset($imgdata) AND ($imgdata !== FALSE)) {
