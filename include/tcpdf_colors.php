@@ -1,9 +1,9 @@
 <?php
 //============================================================+
 // File name   : tcpdf_colors.php
-// Version     : 1.0.002
+// Version     : 1.0.004
 // Begin       : 2002-04-09
-// Last Update : 2013-09-30
+// Last Update : 2014-04-25
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
 // License     : GNU-LGPL v3 (http://www.gnu.org/copyleft/lesser.html)
 // -------------------------------------------------------------------
@@ -42,7 +42,7 @@
  * @class TCPDF_COLORS
  * PHP color class for TCPDF
  * @package com.tecnick.tcpdf
- * @version 1.0.002
+ * @version 1.0.004
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_COLORS {
@@ -240,9 +240,9 @@ class TCPDF_COLORS {
 
 	/**
 	 * Return the Spot color array.
-	 * @param $name (string) Name of the spot color.
-	 * @param $spotc (array) Reference to an array of spot colors.
-	 * @return (array) Spot color array or false if not defined.
+	 * @param string $name Name of the spot color.
+	 * @param array $spotc Reference to an array of spot colors.
+	 * @return array|false Spot color array or false if not defined.
 	 * @since 5.9.125 (2011-10-03)
 	 * @public static
 	 */
@@ -264,10 +264,10 @@ class TCPDF_COLORS {
 
 	/**
 	 * Returns an array (RGB or CMYK) from an html color name, or a six-digit (i.e. #3FE5AA), or three-digit (i.e. #7FF) hexadecimal color, or a javascript color array, or javascript color name.
-	 * @param $hcolor (string) HTML color.
-	 * @param $spotc (array) Reference to an array of spot colors.
-	 * @param $defcol (array) Color to return in case of error.
-	 * @return array RGB or CMYK color, or false in case of error.
+	 * @param string $hcolor HTML color.
+	 * @param array $spotc Reference to an array of spot colors.
+	 * @param array $defcol Color to return in case of error.
+	 * @return array|false RGB or CMYK color, or false in case of error.
 	 * @public static
 	 */
 	public static function convertHTMLColorToDec($hcolor, &$spotc, $defcol=array('R'=>128,'G'=>128,'B'=>128)) {
@@ -275,7 +275,7 @@ class TCPDF_COLORS {
 		$color = strtolower($color);
 		// check for javascript color array syntax
 		if (strpos($color, '[') !== false) {
-			if (preg_match('/[\[][\"\'](t|g|rgb|cmyk)[\"\'][\,]?([0-9\.]*)[\,]?([0-9\.]*)[\,]?([0-9\.]*)[\,]?([0-9\.]*)[\]]/', $color, $m) > 0) {
+			if (preg_match('/[\[][\"\'](t|g|rgb|cmyk)[\"\'][\,]?([0-9\.]*+)[\,]?([0-9\.]*+)[\,]?([0-9\.]*+)[\,]?([0-9\.]*+)[\]]/', $color, $m) > 0) {
 				$returncolor = array();
 				switch ($m[1]) {
 					case 'cmyk': {
@@ -306,7 +306,7 @@ class TCPDF_COLORS {
 				}
 				return $returncolor;
 			}
-		} elseif (($dotpos = strpos($color, '.')) !== false) {
+		} elseif ((substr($color, 0, 4) != 'cmyk') AND (substr($color, 0, 3) != 'rgb') AND (($dotpos = strpos($color, '.')) !== false)) {
 			// remove class parent (i.e.: color.red)
 			$color = substr($color, ($dotpos + 1));
 			if ($color == 'transparent') {
@@ -351,14 +351,14 @@ class TCPDF_COLORS {
 			}
 			return $returncolor;
 		}
-		if ($color{0} != '#') {
+		if ($color[0] != '#') {
 			// COLOR NAME
 			if (isset(self::$webcolor[$color])) {
 				// web color
 				$color_code = self::$webcolor[$color];
 			} else {
 				// spot color
-				$returncolor = self::getSpotColor($color, $spotc);
+				$returncolor = self::getSpotColor($hcolor, $spotc);
 				if ($returncolor === false) {
 					$returncolor = $defcol;
 				}
@@ -407,8 +407,8 @@ class TCPDF_COLORS {
 
 	/**
 	 * Convert a color array into a string representation.
-	 * @param $c (array) Array of colors.
-	 * @return (string) The color array representation.
+	 * @param array $c Array of colors.
+	 * @return string The color array representation.
 	 * @since 5.9.137 (2011-12-01)
 	 * @public static
 	 */
@@ -438,7 +438,7 @@ class TCPDF_COLORS {
 
 	/**
 	 * Convert color to javascript color.
-	 * @param $color (string) color name or "#RRGGBB"
+	 * @param string $color color name or "#RRGGBB"
 	 * @protected
 	 * @since 2.1.002 (2008-02-12)
 	 * @public static
@@ -449,7 +449,7 @@ class TCPDF_COLORS {
 		}
 		if (!in_array($color, self::$jscolor)) {
 			// default transparent color
-			$color = $jscolor[0];
+			$color = self::$jscolor[0];
 		}
 		return 'color.'.$color;
 	}
