@@ -6990,6 +6990,10 @@ class TCPDF {
 			if ($imsize === FALSE) {
 				unlink($file);
 				$file = $original_file;
+                // The file is not image file.
+                if ($w == 0 || $h == 0) {
+                    return false;
+                }
 			}
 		}
 		if ($imsize === FALSE) {
