@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0893816b-331e-41f2-a5d2-f6ea438eb0f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/TCPDF.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/tcpdf_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/tcpdf_config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosans.ctg.z" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosans.ctg.z" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosans.php" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosans.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosans.z" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosans.z" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosansb.ctg.z" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosansb.ctg.z" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosansb.php" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosansb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/notosansb.z" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/notosansb.z" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TCPDF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TCPDF.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,33 +27,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="1tbSSDh1TWa1YXzitG2Mrt6lBQ0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging upgrade",
-    "last_opened_file_path": "/home/damien/repos/TCPDF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/damien/repos/TCPDF&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PS-241.15989.102" />
-        <option value="bundled-php-predefined-ba97393d7c68-c76157a7178b-com.jetbrains.php.sharedIndexes-PS-241.15989.102" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
       </set>
     </attachedChunks>
   </component>
@@ -75,7 +67,8 @@
       <updated>1623036294121</updated>
       <workItem from="1623036298716" duration="1503000" />
       <workItem from="1623294380785" duration="247000" />
-      <workItem from="1715235120338" duration="516000" />
+      <workItem from="1715235120338" duration="818000" />
+      <workItem from="1722495591761" duration="6000" />
     </task>
     <servers />
   </component>
